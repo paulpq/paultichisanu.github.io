@@ -1,6 +1,34 @@
+// Run immediately to prevent flash
+(function() {
+    // Add styles to head before anything renders
+    const style = document.createElement('style');
+    style.textContent = `
+        body:not(.js-loaded) main {
+            display: none;
+        }
+        body.home-active main {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 100vh !important;
+            padding-top: 100px !important;
+        }
+        body.page-active main {
+            display: block !important;
+            align-items: initial !important;
+            justify-content: initial !important;
+            min-height: initial !important;
+            padding-top: 100px !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Set initial state immediately
+    document.body.classList.add('home-active', 'js-loaded');
+})();
+
 function showPage(pageId) {
     const body = document.body;
-    const main = document.querySelector('main');
     const pages = ['home-page', 'commonplace-page', 'posts-page'];
     
     // Hide all pages
@@ -11,7 +39,7 @@ function showPage(pageId) {
         }
     });
     
-    // Remove all page classes from body
+    // Remove all page classes
     body.classList.remove('home-active', 'page-active');
     
     // Show the selected page and add appropriate class
@@ -25,21 +53,14 @@ function showPage(pageId) {
             body.classList.add('page-active');
         }
     }
-    
-    // Force a repaint
-    void main.offsetWidth;
 }
 
-// Initialize on page load
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     showPage('home');
 });
 
-// Also run immediately in case DOM is already loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        showPage('home');
-    });
-} else {
+// Fallback initialization
+if (document.readyState !== 'loading') {
     showPage('home');
 }
