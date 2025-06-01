@@ -76,6 +76,20 @@
             min-height: 100vh;
             
         }
+/* Page layout classes */
+main.home-layout {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+}
+
+main.page-layout {
+    display: block !important;
+    align-items: initial !important;
+    justify-content: initial !important;
+    min-height: initial !important;
+}
 
         .main-content {
             max-width: 600px;
