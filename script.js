@@ -40,20 +40,4 @@ function showPage(page) {
 window.onload = function () {
     showPage('home');
 };
- function showPage(pageId) {
-            // Hide all pages
-            const pages = ['home-page', 'commonplace-page', 'posts-page'];
-            
-            pages.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.style.display = 'none';
-                }
-            });
-            
-            // Show the selected page
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.style.display = 'block';
-            }
-        }
+
