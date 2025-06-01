@@ -95,12 +95,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: var(--spacing-lg);
+            gap: var(--spacing-md);
             background: var(--bg-white);
             border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: var(--spacing-xl);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            padding: var(--spacing-2xl);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            max-width: 500px;
         }
 
         /* Profile Image */
@@ -110,22 +111,23 @@
         }
 
         .profile-image img {
-            width: 120px;
-            height: 120px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             object-fit: cover;
         }
 
         /* Typography */
         header {
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
         }
 
         .name {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 600;
             letter-spacing: -0.02em;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0;
             line-height: 1.2;
         }
 
@@ -138,13 +140,14 @@
 
         /* Bio Section */
         .bio {
-            max-width: 500px;
-            margin: var(--spacing-lg) 0;
+            max-width: 450px;
+            margin: 0;
+            text-align: center;
         }
 
         .bio p {
             font-size: 1.05rem;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--text-secondary);
             letter-spacing: 0.005em;
         }
@@ -152,20 +155,25 @@
         /* Social Links */
         .social-links {
             display: flex;
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
             justify-content: center;
-            margin-top: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
         }
 
         .social-link {
             color: var(--text-secondary);
             text-decoration: none;
-            margin: 0 var(--spacing-sm);
-            transition: color 0.2s ease;
+            padding: var(--spacing-xs);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-link:hover {
             color: var(--text-primary);
+            background: rgba(0, 0, 0, 0.04);
         }
 
         .social-link svg {
@@ -245,7 +253,7 @@
             }
 
             .social-links {
-                gap: var(--spacing-xs);
+                gap: 0.25rem;
             }
 
             .social-link {
