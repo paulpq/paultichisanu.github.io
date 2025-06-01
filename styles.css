@@ -32,6 +32,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+body.home-active main {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+}
+
+body.page-active main {
+    display: block !important;
+    align-items: initial !important;
+    justify-content: initial !important;
+    min-height: initial !important;
+    padding-top: 100px !important;
+}
         /* Navigation */
         .nav-bar {
             position: fixed;
