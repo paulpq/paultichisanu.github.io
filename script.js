@@ -1,4 +1,35 @@
 <script>
+        function showPage(pageId) {
+    // Hide all pages
+    const pages = ['home-page', 'commonplace-page', 'posts-page'];
+    const main = document.querySelector('main');
+    
+    pages.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.style.display = 'none';
+        }
+    });
+    
+    // Show the selected page and adjust main styling
+    const targetPage = document.getElementById(pageId + '-page');
+    if (targetPage) {
+        targetPage.style.display = 'block';
+        
+        // Reset main styling based on page type
+        if (pageId === 'home') {
+            main.style.display = 'flex';
+            main.style.alignItems = 'center';
+            main.style.justifyContent = 'center';
+            main.style.minHeight = '100vh';
+        } else {
+            main.style.display = 'block';
+            main.style.alignItems = 'initial';
+            main.style.justifyContent = 'initial';
+            main.style.minHeight = 'initial';
+        }
+    }
+}
         function showPage(page) {
             // Hide all content
             document.getElementById('home-page').style.display = 'none';
