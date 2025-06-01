@@ -1,77 +1,94 @@
-<script>
-        function showPage(pageId) {
-    // Hide all pages
-    const pages = ['home-page', 'commonplace-page', 'posts-page'];
-    const main = document.querySelector('main');
+// Page navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the page
+    showPage('home');
     
-    pages.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.style.display = 'none';
+    // Add click event listeners to navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Get page name from onclick attribute or data attribute
+            const onclick = this.getAttribute('onclick');
+            if (onclick) {
+                const match = onclick.match(/showPage\('([^']+)'\)/);
+                if (match) {
+                    showPage(match[1]);
+                }
+            }
+        });
+    });
+});
+
+function showPage(pageId) {
+    const main = document.querySelector('main');
+    const pages = {
+        'home': document.getElementById('home-page'),
+        'commonplace': document.getElementById('commonplace-page'),
+        'posts': document.getElementById('posts-page')
+    };
+    
+    // Hide all pages
+    Object.values(pages).forEach(page => {
+        if (page) {
+            page.style.display = 'none';
         }
     });
     
-    // Show the selected page and adjust main styling
-    const targetPage = document.getElementById(pageId + '-page');
+    // Reset main element styles
+    main.style.display = '';
+    main.style.alignItems = '';
+    main.style.justifyContent = '';
+    main.style.minHeight = '';
+    
+    // Show the selected page and apply appropriate styling
+    const targetPage = pages[pageId];
     if (targetPage) {
         targetPage.style.display = 'block';
         
-        // Reset main styling based on page type
         if (pageId === 'home') {
+            // Apply home page specific styling
             main.style.display = 'flex';
             main.style.alignItems = 'center';
             main.style.justifyContent = 'center';
             main.style.minHeight = '100vh';
         } else {
+            // Apply other pages styling
             main.style.display = 'block';
-            main.style.alignItems = 'initial';
-            main.style.justifyContent = 'initial';
-            main.style.minHeight = 'initial';
         }
+        
+        // Force reflow to ensure styles are applied
+        main.offsetHeight;
+    }
+    
+    // Update URL hash without triggering page reload
+    if (pageId !== 'home') {
+        window.history.replaceState(null, null, '#' + pageId);
+    } else {
+        window.history.replaceState(null, null, window.location.pathname);
     }
 }
-        function showPage(page) {
-            // Hide all content
-            document.getElementById('home-page').style.display = 'none';
-            document.getElementById('commonplace-page').style.display = 'none';
-            document.getElementById('posts-page').style.display = 'none';
 
-            // Remove active class from all nav links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function() {
+    const hash = window.location.hash.substring(1);
+    const page = hash || 'home';
+    showPage(page);
+});
 
-            // Get main content container
-            const mainContent = document.getElementById('main-content');
-
-            // Show selected page and activate nav link
-            if (page === 'home') {
-                document.getElementById('home-page').style.display = 'block';
-                document.querySelector('[data-page="home"]').classList.add('active');
-                mainContent.classList.add('centered');
-            } else {
-                mainContent.classList.remove('centered');
-                if (page === 'commonplace') {
-                    document.getElementById('commonplace-page').style.display = 'block';
-                    document.querySelector('[data-page="commonplace"]').classList.add('active');
-                } else if (page === 'posts') {
-                    document.getElementById('posts-page').style.display = 'block';
-                    document.querySelector('[data-page="posts"]').classList.add('active');
-                }
-            }
-        }
-
-        // Add event listeners to navigation links
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.getAttribute('data-page');
-                    showPage(page);
-                });
-            });
-
-            // Set default page
-            showPage('home');
-        });
-    </script>
+// Handle direct navigation via URL hash
+window.addEventListener('load', function() {
+    const hash = window.location.hash.substring(1);
+    if (hash && ['home', 'commonplace', 'posts'].includes(hash)) {
+        showPage(hash);
+    } else {
+        showPage('home');
+    }
+});
