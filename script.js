@@ -40,4 +40,4 @@ function showPage(page) {
 window.onload = function () {
     showPage('home');
 };
-
+<a href="#" class="nav-link" onclick="event.preventDefault(); showPage('home');">Home</a>
