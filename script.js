@@ -1,8 +1,9 @@
-function showPage(page) {
+<script>
+        function showPage(page) {
             // Hide all content
             document.getElementById('home-page').style.display = 'none';
-            document.getElementById('commonplace-page').classList.remove('active');
-            document.getElementById('posts-page').classList.remove('active');
+            document.getElementById('commonplace-page').style.display = 'none';
+            document.getElementById('posts-page').style.display = 'none';
 
             // Remove active class from all nav links
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -20,10 +21,10 @@ function showPage(page) {
             } else {
                 mainContent.classList.remove('centered');
                 if (page === 'commonplace') {
-                    document.getElementById('commonplace-page').classList.add('active');
+                    document.getElementById('commonplace-page').style.display = 'block';
                     document.querySelector('[data-page="commonplace"]').classList.add('active');
                 } else if (page === 'posts') {
-                    document.getElementById('posts-page').classList.add('active');
+                    document.getElementById('posts-page').style.display = 'block';
                     document.querySelector('[data-page="posts"]').classList.add('active');
                 }
             }
@@ -42,3 +43,4 @@ function showPage(page) {
             // Set default page
             showPage('home');
         });
+    </script>
