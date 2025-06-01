@@ -32,20 +32,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-body.home-active main {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 100vh !important;
-}
-
-body.page-active main {
-    display: block !important;
-    align-items: initial !important;
-    justify-content: initial !important;
-    min-height: initial !important;
-    padding-top: 100px !important;
-}
         /* Navigation */
         .nav-bar {
             position: fixed;
@@ -84,26 +70,19 @@ body.page-active main {
             color: var(--text-primary);
         }
 
-        /* Main Content */
-        main {
+        /* Main Content Container */
+        .content-wrapper {
             padding-top: 100px;
             min-height: 100vh;
-            
         }
-/* Page layout classes */
-main.home-layout {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 100vh !important;
-}
 
-main.page-layout {
-    display: block !important;
-    align-items: initial !important;
-    justify-content: initial !important;
-    min-height: initial !important;
-}
+        /* Home Page Specific */
+        .home-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
+        }
 
         .main-content {
             max-width: 600px;
@@ -131,8 +110,8 @@ main.page-layout {
         }
 
         .profile-image img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -150,7 +129,7 @@ main.page-layout {
             line-height: 1.2;
         }
 
-/* .title {
+        .title {
             font-size: 1.125rem;
             font-weight: 400;
             color: var(--text-secondary);
@@ -194,7 +173,7 @@ main.page-layout {
             height: 18px;
         }
 
-        /* Page Content */
+        /* Other Pages Content */
         .page-content {
             max-width: 800px;
             margin: 0 auto;
@@ -225,6 +204,15 @@ main.page-layout {
             margin: 0 auto var(--spacing-lg);
         }
 
+        /* Page Visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -236,7 +224,7 @@ main.page-layout {
                 font-size: 14px;
             }
 
-            main {
+            .content-wrapper {
                 padding-top: 80px;
             }
 
@@ -257,7 +245,7 @@ main.page-layout {
             }
 
             .social-links {
-                gap: var(--spacing-sm);
+                gap: var(--spacing-xs);
             }
 
             .social-link {
