@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- SEO Meta Tags -->
     <title>Paul Tichisanu | my website</title>
-    <meta name="keywords"
-        content="Paul Tichisanu, high school student, student portfolio, technology, programming, personal development, blog, Paul T, Tichisanu Paul">
+    <meta name="keywords" content="Paul Tichisanu, high school student, student portfolio, technology, programming, personal development, blog, Paul T, Tichisanu Paul">
     <meta name="author" content="Paul Tichisanu">
     <meta name="robots" content="index, follow">
-
+    
     <meta property="og:title" content="Paul Tichisanu - High School Student">
-    <meta property="og:description"
-        content="High school student passionate about technology, learning, and personal development.">
+    <meta property="og:description" content="High school student passionate about technology, learning, and personal development.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:image" content="https://yourdomain.com/paul.png">
+    
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -40,27 +39,303 @@
         }
     }
     </script>
-
+    
     <link rel="icon" href="favicon.png">
     <link rel="canonical" href="https://paultichisanu.xyz">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-light: #999;
+            --border-light: #e5e5e5;
+            --bg-white: #ffffff;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+            padding: var(--spacing-sm) 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            padding: 0 var(--spacing-sm);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.01em;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: var(--spacing-xs) 0;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-lg);
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: var(--spacing-xl);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Profile Image */
+        .profile-image {
+            position: relative;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .profile-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Typography */
+        header {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.2;
+        }
+
+        .title {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+        }
+
+        /* Bio Section */
+        .bio {
+            max-width: 500px;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .bio p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            letter-spacing: 0.005em;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 var(--spacing-sm);
+            transition: color 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--text-primary);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Page Content */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            text-align: center;
+        }
+
+        .page-content h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .page-content h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xl);
+            letter-spacing: -0.01em;
+        }
+
+        .page-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                gap: var(--spacing-lg);
+                padding: 0 var(--spacing-md);
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+
+            main {
+                padding-top: 80px;
+            }
+
+            .main-content {
+                padding: var(--spacing-md);
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .bio p {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                gap: var(--spacing-sm);
+            }
+
+            .social-link {
+                width: 44px;
+                height: 44px;
+            }
+
+            .page-content {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .page-content h1 {
+                font-size: 1.875rem;
+            }
+
+            .page-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                gap: var(--spacing-md);
+            }
+
+            .profile-image img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .name {
+                font-size: 1.75rem;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Smooth transitions for page switching */
+    </style>
 </head>
 
 <body>
     <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#" class="nav-link active" data-page="home" aria-label="Home page">home</a>
-            <a href="#" class="nav-link" data-page="commonplace" aria-label="Commonplace book">commonplace book</a>
-            <a href="#" class="nav-link" data-page="posts" aria-label="Blog posts">posts</a>
+            <a href="#" class="nav-link" onclick="showPage('home')" aria-label="Home page">home</a>
+            <a href="#" class="nav-link" onclick="showPage('commonplace')" aria-label="Commonplace book">commonplace book</a>
+            <a href="#" class="nav-link" onclick="showPage('posts')" aria-label="Blog posts">posts</a>
         </div>
     </nav>
 
     <main>
-        <div class="main-content centered" id="main-content">
+        <div class="main-content">
             <div class="container" id="home-page">
                 <div class="profile-image">
-                    <img src="paul.png" width="150" alt="Paul Tichisanu profile picture" loading="lazy">
+                    <img src="paul.png" alt="Paul Tichisanu profile picture" loading="lazy">
                 </div>
 
                 <header>
@@ -69,30 +344,25 @@
                 </header>
 
                 <section class="bio">
-                    <p>Welcome to my personal website! I'm Paul, a passionate high school student interested in physics,
-                        technology, programming, and continuous learning. Here you'll find my thoughts, projects, and
-                        reflections on various topics.</p>
+                    <p>Welcome to my personal website! I'm Paul, a passionate high school student interested in physics, technology, programming, and continuous learning. Here you'll find my thoughts, projects, and reflections on various topics.</p>
                 </section>
 
                 <div class="social-links" role="list" aria-label="Social media links">
-                    <a href="https://github.com/paulpq" class="social-link" title="Paul Tichisanu on GitHub"
-                        aria-label="Visit my GitHub profile">
+                    <a href="https://github.com/paulpq" class="social-link" title="Paul Tichisanu on GitHub" aria-label="Visit my GitHub profile">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path
                                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                     </a>
 
-                    <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email Paul Tichisanu"
-                        aria-label="Send me an email">
+                    <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email Paul Tichisanu" aria-label="Send me an email">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path
                                 d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
                         </svg>
                     </a>
 
-                    <a href="https://www.instagram.com/paultichisanu/" class="social-link"
-                        title="Paul Tichisanu on Instagram" aria-label="Visit my Instagram profile">
+                    <a href="https://www.instagram.com/paultichisanu/" class="social-link" title="Paul Tichisanu on Instagram" aria-label="Visit my Instagram profile">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -100,7 +370,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
 
         <section class="page-content" id="commonplace-page" style="display: none;">
@@ -111,14 +380,30 @@
 
         <section class="page-content" id="posts-page" style="display: none;">
             <h1>Posts</h1>
-            <p>My thoughts on various topics, from school experiences to broader observations about life, technology,
-                and personal growth.</p>
+            <p>My thoughts on various topics, from school experiences to broader observations about life, technology, and personal growth.</p>
             <h2>Coming soon!</h2>
         </section>
-        </div>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = ['home-page', 'commonplace-page', 'posts-page'];
+            
+            pages.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.style.display = 'none';
+                }
+            });
+            
+            // Show the selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 
 </html>
