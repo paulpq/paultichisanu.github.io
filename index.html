@@ -4,127 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Paul Tichisanu - High School Student | Portfolio & Blog</title>
+    <meta name="description" content="Paul Tichisanu is a high school student passionate about technology, learning, and personal development. Explore his portfolio, commonplace book, and blog posts.">
+    <meta name="keywords" content="Paul Tichisanu, high school student, student portfolio, technology, programming, personal development, blog">
+    <meta name="author" content="Paul Tichisanu">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags (for social media) -->
+    <meta property="og:title" content="Paul Tichisanu - High School Student">
+    <meta property="og:description" content="High school student passionate about technology, learning, and personal development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/paul.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Paul Tichisanu - High School Student">
+    <meta name="twitter:description" content="High school student passionate about technology, learning, and personal development.">
+    <meta name="twitter:image" content="https://yourdomain.com/paul.png">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Paul Tichisanu",
+        "jobTitle": "High School Student",
+        "description": "High school student passionate about technology, learning, and personal development",
+        "url": "https://yourdomain.com",
+        "image": "https://yourdomain.com/paul.png",
+        "sameAs": [
+            "https://github.com/paulpq",
+            "https://www.instagram.com/paultichisanu/"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "paulchillboi10@gmail.com",
+            "contactType": "Personal"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.png">
-    <title>Paul Tichisanu</title>
+    <link rel="canonical" href="https://yourdomain.com">
 </head>
 
 <body>
-    <nav class="nav-bar">
+    <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#" class="nav-link" onclick="showPage('home')">home</a>
-            <a href="#" class="nav-link" onclick="showPage('commonplace')">commonplace book</a>
-            <a href="#" class="nav-link" onclick="showPage('posts')">posts</a>
+            <a href="#" class="nav-link" onclick="showPage('home')" aria-label="Home page">home</a>
+            <a href="#" class="nav-link" onclick="showPage('commonplace')" aria-label="Commonplace book">commonplace book</a>
+            <a href="#" class="nav-link" onclick="showPage('posts')" aria-label="Blog posts">posts</a>
         </div>
     </nav>
 
-    <div class="main-content">
-        <div class="container" id="home-page">
-            <div class="profile-image">
-                <img src="paul.png" width="150">
-            </div>
+    <main>
+        <div class="main-content">
+            <div class="container" id="home-page">
+                <div class="profile-image">
+                    <img src="paul.png" width="150" alt="Paul Tichisanu profile picture" loading="lazy">
+                </div>
 
-            <div class="name">Paul Tichisanu</div>
-            <div class="title">High School Student</div>
+                <header>
+                    <h1 class="name">Paul Tichisanu</h1>
+                    <h2 class="title">High School Student</h2>
+                </header>
 
-            <div class="social-links">
-                <!--<a href="#" class="social-link" title="Twitter">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                    </svg>
-                </a>  -->
+                <section class="bio">
+                    <p>Welcome to my personal website! I'm Paul Tichisanu, a passionate high school student interested in technology, programming, and continuous learning. Here you'll find my thoughts, projects, and reflections on various topics.</p>
+                </section>
 
-                <!-- <a href="#" class="social-link" title="LinkedIn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                </a> -->
+                <div class="social-links" role="list" aria-label="Social media links">
+                    <a href="https://github.com/paulpq" class="social-link" title="Paul Tichisanu on GitHub" aria-label="Visit my GitHub profile">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
 
-                <a href="https://github.com/paulpq" class="social-link" title="GitHub">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                </a>
+                    <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email Paul Tichisanu" aria-label="Send me an email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
+                        </svg>
+                    </a>
 
-                <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
-                    </svg>
-                </a>
-
-                <a href="https://www.instagram.com/paultichisanu/" class="social-link" title="Instagram">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                </a>
-
-                <!-- <a href="#" class="social-link" title="Dribbble">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm9.568 5.302c.896 1.41 1.431 3.067 1.431 4.848-.024-.149-1.387-.301-3.429-.301-.485 0-.944.018-1.382.044-.245-.598-.515-1.196-.8-1.779 2.982-1.225 4.180-2.812 4.180-2.812zM12 2.302c1.617 0 3.102.431 4.396 1.183-.149.197-1.183 1.615-4.09 2.771-1.296-2.382-2.731-4.313-2.731-4.313C10.414 2.302 11.197 2.302 12 2.302zM8.027 2.302c.224 0 .442.018.659.044 0 0 1.435 1.931 2.716 4.328-3.412.912-6.415.899-6.81.899-.421-2.382.421-4.328 1.645-5.787.593-.329 1.25-.484 1.79-.484zm-4.949 7.698c0-.149.015-.299.030-.448.388 0 4.418.044 8.071-.972 1.197 2.329 1.691 4.298 1.691 4.298-2.16 1.257-3.717 3.542-3.717 6.271 0 1.257.299 2.441.824 3.502-1.526-1.287-2.581-3.205-2.899-5.369-.404-2.785.000-5.327.000-7.282zm12.27 18.998c-1.526 0-2.926-.449-4.117-1.197 0 0-.509-2.024-1.691-4.568 1.182-.374 3.681-.449 6.219.135.508 2.458-.135 4.538-1.091 5.630zm3.367-2.024c.568-1.302.883-2.785.883-4.343 0-.794-.090-1.571-.254-2.308-2.263-.479-4.643-.359-6.219.135.479 1.257 1.226 3.562 1.691 4.568 1.556.674 2.801 1.782 3.899 1.948z" />
-                    </svg>
-                </a>-->
+                    <a href="https://www.instagram.com/paultichisanu/" class="social-link" title="Paul Tichisanu on Instagram" aria-label="Visit my Instagram profile">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="page-content" id="commonplace-page">
-        <h1>Commonplace Book</h1>
-        <p>A collection of quotes, ideas, and thoughts that have caught my attention.</p>
-        <h2>Coming soon!</h2>
-        <!--<h2>Recent Entries</h2>
-        <p><em>"The only way to do great work is to love what you do."</em> - Steve Jobs</p>
-        <p>This quote resonates with me as I think about my future career path. Finding something you're passionate
-            about seems crucial for long-term success and happiness.</p>
+        <section class="page-content" id="commonplace-page" style="display: none;">
+            <h1>Commonplace Book</h1>
+            <p>A collection of quotes, ideas, and thoughts that have caught my attention throughout my learning journey.</p>
+            <h2>Coming soon!</h2>
+        </section>
 
-        <p><em>"Education is the most powerful weapon which you can use to change the world."</em> - Nelson Mandela</p>
-        <p>As a high school student, this reminds me why my studies matter beyond just grades - they're preparation for
-            making a real impact.</p>
+        <section class="page-content" id="posts-page" style="display: none;">
+            <h1>Posts</h1>
+            <p>My thoughts on various topics, from school experiences to broader observations about life, technology, and personal growth.</p>
+            <h2>Coming soon!</h2>
+        </section>
+    </main>
 
-        <h2>Ideas & Reflections</h2>
-        <p>Learning should be active, not passive. The best insights often come when you're discussing ideas with others
-            or trying to apply concepts to real situations.</p>
-
-        <p>Technology is reshaping everything, but human connection and creativity remain irreplaceable. Finding the
-            balance between leveraging tech and maintaining our humanity is one of the key challenges of our generation.
-        </p>-->
-    </div>
-
-    <div class="page-content" id="posts-page">
-        <h1>Posts</h1>
-        <p>My thoughts on various topics, from miscellaneous experiences to broader observations about life.</p>
-        <h2>Coming soon!</h2>
-        <!-- <h2>The Importance of Curiosity in Learning</h2>
-        <p><em>Posted: March 15, 2025</em></p>
-        <p>I've noticed that the subjects I enjoy most aren't necessarily the ones that come easiest to me, but the ones
-            where I'm genuinely curious about the answers. When you're curious, research doesn't feel like work - it
-            feels like solving a mystery.</p>
-        <p>This has changed how I approach studying. Instead of just memorizing facts, I try to understand the 'why'
-            behind everything. Why does this historical event matter? Why does this scientific principle work the way it
-            does?</p>
-
-        <h2>Digital Minimalism as a Student</h2>
-        <p><em>Posted: February 28, 2025</em></p>
-        <p>Being constantly connected isn't always helpful for learning. I've started implementing "focus blocks" where
-            I put my phone in another room and work on one subject at a time. The difference in my concentration and the
-            quality of my work has been remarkable.</p>
-        <p>It's not about rejecting technology, but being intentional about when and how we use it.</p>
-
-        <h2>What I'm Learning Outside School</h2>
-        <p><em>Posted: February 10, 2025</em></p>
-        <p>Some of my most valuable learning happens outside the classroom. Whether it's coding tutorials, philosophy
-            podcasts, or just having deep conversations with friends and family, these experiences shape how I think
-            about the world.</p>
-        <p>I think the best education combines formal learning with self-directed exploration of your interests.</p>
-    </div> -->
-        <script src="script.js"></script>
-
-
+    <script src="script.js"></script>
 </body>
 
 </html>
