@@ -145,7 +145,7 @@
         /* Social Links */
         .social-links {
             display: flex;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             justify-content: center;
             margin-top: var(--spacing-xl);
         }
