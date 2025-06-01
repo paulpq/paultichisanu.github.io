@@ -103,8 +103,8 @@
         }
 
         .profile-image img {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -122,7 +122,7 @@
             line-height: 1.2;
         }
 
-        .title {
+/* .title {
             font-size: 1.125rem;
             font-weight: 400;
             color: var(--text-secondary);
