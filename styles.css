@@ -45,6 +45,18 @@
     }
 }
 
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -92,6 +104,7 @@ body {
     position: relative;
     transition: var(--transition);
     padding: var(--spacing-xs) 0;
+    cursor: pointer;
 }
 
 .nav-link::after {
@@ -190,7 +203,7 @@ header {
     margin-bottom: 0;
     line-height: 1.2;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: var(--transition);
 }
@@ -279,12 +292,15 @@ header {
     gap: 8px;
 }
 
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
 /* Other Pages Content */
 .page-content {
     max-width: 800px;
     margin: 0 auto;
     padding: var(--spacing-2xl) var(--spacing-lg);
-    text-align: center;
     animation: fadeIn 0.6s ease-out;
 }
 
@@ -294,16 +310,20 @@ header {
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.02em;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 .page-content h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
     letter-spacing: -0.01em;
+    border-bottom: 2px solid var(--text-secondary);
+    padding-bottom: 0.5rem;
 }
 
 .page-content p {
@@ -312,6 +332,54 @@ header {
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+
+.page-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.page-content ul li {
+    margin-bottom: 1rem;
+}
+
+.page-content ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.page-content ul li a:hover {
+    color: var(--accent-color);
+}
+
+.quotes {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.quotes blockquote {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 4px solid var(--text-secondary);
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.quotes blockquote p {
+    margin: 0;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.quotes blockquote footer {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Page Visibility */
@@ -380,6 +448,10 @@ header {
     .page-content p {
         font-size: 1rem;
     }
+
+    .quotes blockquote {
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -408,77 +480,5 @@ header {
 
     .social-link {
         padding: var(--spacing-xs);
-    }
-}
-
-.commonplace-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.commonplace-section h2 {
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    border-bottom: 2px solid var(--text-secondary);
-    padding-bottom: 0.5rem;
-}
-
-.commonplace-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.commonplace-section ul li {
-    margin-bottom: 1rem;
-}
-
-.commonplace-section ul li a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: 1.1rem;
-}
-
-.commonplace-section ul li a:hover {
-    color: var(--text-secondary);
-}
-
-.quotes {
-    display: grid;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.quotes blockquote {
-    background: rgba(0, 0, 0, 0.03);
-    border-left: 4px solid var(--text-secondary);
-    margin: 0;
-    padding: 1rem 1.5rem;
-    border-radius: 0 4px 4px 0;
-}
-
-.quotes blockquote p {
-    margin: 0;
-    font-style: italic;
-    color: var(--text-primary);
-    line-height: 1.6;
-}
-
-.quotes blockquote footer {
-    margin-top: 0.75rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .commonplace-section {
-        padding: 1rem;
-    }
-
-    .quotes blockquote {
-        padding: 1rem;
     }
 }
