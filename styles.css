@@ -176,77 +176,6 @@ body {
 .profile-image:hover img {
     transform: scale(1.02);
 }
-.commonplace-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.commonplace-section h2 {
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
-    font-size: 1.5rem;
-    border-bottom: 2px solid var(--text-secondary);
-    padding-bottom: 0.5rem;
-}
-
-.commonplace-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.commonplace-section ul li {
-    margin-bottom: 1rem;
-}
-
-.commonplace-section ul li a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: 1.1rem;
-}
-
-.commonplace-section ul li a:hover {
-    color: var(--text-secondary);
-}
-
-.quotes {
-    display: grid;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.quotes blockquote {
-    background: rgba(0, 0, 0, 0.03);
-    border-left: 4px solid var(--text-secondary);
-    margin: 0;
-    padding: 1rem 1.5rem;
-    border-radius: 0 4px 4px 0;
-}
-
-.quotes blockquote p {
-    margin: 0;
-    font-style: italic;
-    color: var(--text-primary);
-    line-height: 1.6;
-}
-
-.quotes blockquote footer {
-    margin-top: 0.75rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .commonplace-section {
-        padding: 1rem;
-    }
-    
-    .quotes blockquote {
-        padding: 1rem;
-    }
-}
 
 /* Typography */
 header {
@@ -479,5 +408,77 @@ header {
 
     .social-link {
         padding: var(--spacing-xs);
+    }
+}
+
+.commonplace-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.commonplace-section h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--text-secondary);
+    padding-bottom: 0.5rem;
+}
+
+.commonplace-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.commonplace-section ul li {
+    margin-bottom: 1rem;
+}
+
+.commonplace-section ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.commonplace-section ul li a:hover {
+    color: var(--text-secondary);
+}
+
+.quotes {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.quotes blockquote {
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 4px solid var(--text-secondary);
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.quotes blockquote p {
+    margin: 0;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.quotes blockquote footer {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .commonplace-section {
+        padding: 1rem;
+    }
+
+    .quotes blockquote {
+        padding: 1rem;
     }
 }
