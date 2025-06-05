@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLJ4KXGS6M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VLJ4KXGS6M');
+    </script>
+
     <!-- SEO Meta Tags -->
     <title>Paul Tichisanu | my website</title>
     <meta name="keywords"
@@ -44,731 +54,81 @@
     <link rel="icon" href="favicon.png">
     <link rel="canonical" href="https://paultichisanu.xyz">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --text-primary: #1a1a1a;
-            --text-secondary: #666;
-            --text-light: #999;
-            --border-light: rgba(0, 0, 0, 0.1);
-            --bg-white: #ffffff;
-            --bg-light: #f8f9fa;
-            --accent-color: #007AFF;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --spacing-2xl: 4rem;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.95);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0.7;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-white);
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Navigation */
-        .nav-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 100;
-            padding: var(--spacing-sm) 0;
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            padding: 0 var(--spacing-sm);
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 15px;
-            letter-spacing: 0.01em;
-            position: relative;
-            transition: var(--transition);
-            padding: var(--spacing-xs) 0;
-            cursor: pointer;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-
-        /* Main Content Container */
-        .content-wrapper {
-            padding-top: 100px;
-            min-height: 100vh;
-        }
-
-        /* Home Page Specific */
-        .home-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 100px);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .main-content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: var(--spacing-lg);
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-md);
-            background: var(--bg-white);
-            border: 1px solid var(--border-light);
-            border-radius: 24px;
-            padding: var(--spacing-2xl);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-            transition: var(--transition);
-            animation: scaleIn 0.6s ease-out;
-        }
-
-        .container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Profile Image */
-        .profile-image {
-            position: relative;
-            margin-bottom: var(--spacing-sm);
-            transition: var(--transition);
-        }
-
-        .profile-image img {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--bg-white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .profile-image:hover img {
-            transform: scale(1.02);
-        }
-
-        /* Typography */
-        header {
-            margin-bottom: var(--spacing-sm);
-            text-align: center;
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 0;
-            line-height: 1.2;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: var(--transition);
-        }
-
-        .title {
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            letter-spacing: 0.01em;
-        }
-
-        /* Bio Section */
-        .bio {
-            max-width: 450px;
-            margin: 0;
-            text-align: center;
-        }
-
-        .bio p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            letter-spacing: 0.005em;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            margin-top: var(--spacing-lg);
-        }
-
-        .social-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: var(--spacing-sm);
-            border-radius: 12px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-light);
-        }
-
-        .social-link:hover {
-            color: var(--accent-color);
-            background: var(--bg-light);
-            transform: translateY(-2px);
-        }
-
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-            transition: var(--transition);
-        }
-
-        /* Visitor Counter */
-        .visitor-counter {
-            margin-top: var(--spacing-lg);
-            text-align: center;
-            animation: fadeIn 0.8s ease-out 0.4s backwards;
-        }
-
-        .visitor-count {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--bg-light);
-            border-radius: 100px;
-            font-size: 14px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .visitor-count:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .visitor-count span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .loading {
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Other Pages Content */
-        .page-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-2xl) var(--spacing-lg);
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .page-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-align: center;
-        }
-
-        .page-content h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-top: var(--spacing-xl);
-            margin-bottom: var(--spacing-md);
-            letter-spacing: -0.01em;
-            border-bottom: 2px solid var(--text-secondary);
-            padding-bottom: 0.5rem;
-        }
-
-        .page-content p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto var(--spacing-lg);
-            text-align: center;
-        }
-
-        .page-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .page-content ul li {
-            margin-bottom: 1rem;
-        }
-
-        .page-content ul li a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-size: 1.1rem;
-        }
-
-        .page-content ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        .quotes {
-            display: grid;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .quotes blockquote {
-            background: rgba(0, 0, 0, 0.03);
-            border-left: 4px solid var(--text-secondary);
-            margin: 0;
-            padding: 1rem 1.5rem;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .quotes blockquote p {
-            margin: 0;
-            font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .quotes blockquote footer {
-            margin-top: 0.75rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Page Visibility */
-        .page {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-        }
-
-        .page.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                gap: var(--spacing-lg);
-                padding: 0 var(--spacing-md);
-            }
-
-            .nav-link {
-                font-size: 14px;
-            }
-
-            .content-wrapper {
-                padding-top: 80px;
-            }
-
-            .main-content {
-                padding: var(--spacing-md);
-            }
-
-            .container {
-                padding: var(--spacing-xl);
-            }
-
-            .name {
-                font-size: 2rem;
-            }
-
-            .title {
-                font-size: 1rem;
-            }
-
-            .bio p {
-                font-size: 1rem;
-            }
-
-            .social-links {
-                gap: var(--spacing-xs);
-            }
-
-            .social-link {
-                padding: var(--spacing-xs);
-            }
-
-            .page-content {
-                padding: var(--spacing-xl) var(--spacing-md);
-            }
-
-            .page-content h1 {
-                font-size: 2rem;
-            }
-
-            .page-content p {
-                font-size: 1rem;
-            }
-
-            .quotes blockquote {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                gap: var(--spacing-md);
-            }
-
-            .container {
-                padding: var(--spacing-lg);
-            }
-
-            .profile-image img {
-                width: 140px;
-                height: 140px;
-            }
-
-            .name {
-                font-size: 1.75rem;
-            }
-
-            .social-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: var(--spacing-xs);
-            }
-
-            .social-link {
-                padding: var(--spacing-xs);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <nav class="nav-bar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a class="nav-link active" data-page="home" aria-label="Home page">home</a>
-            <a class="nav-link" data-page="commonplace" aria-label="Commonplace book">commonplace book</a>
-            <a class="nav-link" data-page="posts" aria-label="Blog posts">posts</a>
+            <a class="nav-link active" href="index.html" aria-label="Home page">home</a>
+            <a class="nav-link" href="commonplace.html" aria-label="Commonplace book">commonplace book</a>
+            <a class="nav-link" href="posts.html" aria-label="Blog posts">posts</a>
         </div>
     </nav>
 
     <div class="content-wrapper">
-        <!-- Home Page -->
-        <div class="page active" id="home">
-            <div class="home-container">
-                <div class="main-content">
-                    <div class="container">
-                        <div class="profile-image">
-                            <img src="paul.png"
-                                alt="Paul Tichisanu profile picture" loading="lazy">
-                        </div>
+        <div class="home-container">
+            <div class="main-content">
+                <div class="container">
+                    <div class="profile-image">
+                        <img src="paul.png"
+                            alt="Paul Tichisanu profile picture" loading="lazy">
+                    </div>
 
-                        <header>
-                            <h1 class="name">Paul Tichisanu</h1>
-                        </header>
+                    <header>
+                        <h1 class="name">Paul Tichisanu</h1>
+                    </header>
 
-                        <section class="bio">
-                            <p>Welcome to my personal website! I'm Paul, a passionate student interested in physics,
-                                technology, programming, and continuous learning. Here you'll find my thoughts,
-                                projects, and reflections on various topics.</p>
-                        </section>
+                    <section class="bio">
+                        <p>Welcome to my personal website! I'm Paul, a passionate student interested in physics,
+                            technology, programming, and continuous learning. Here you'll find my thoughts,
+                            projects, and reflections on various topics.</p>
+                    </section>
 
-                        <div class="social-links" role="list" aria-label="Social media links">
-                            <a href="https://github.com/paulpq" class="social-link" title="Paul Tichisanu on GitHub"
-                                aria-label="Visit my GitHub profile">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                </svg>
-                            </a>
+                    <div class="social-links">
+                        <a href="https://github.com/paulpq" class="social-link" title="Paul Tichisanu on GitHub"
+                            aria-label="Visit my GitHub profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
 
-                            <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email Paul Tichisanu"
-                                aria-label="Send me an email">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
-                                </svg>
-                            </a>
+                        <a href="mailto:paulchillboi10@gmail.com" class="social-link" title="Email Paul Tichisanu"
+                            aria-label="Send me an email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
+                            </svg>
+                        </a>
 
-                            <a href="https://www.instagram.com/paultichisanu/" class="social-link"
-                                title="Paul Tichisanu on Instagram" aria-label="Visit my Instagram profile">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                </svg>
-                            </a>
+                        <a href="https://www.instagram.com/paultichisanu/" class="social-link"
+                            title="Paul Tichisanu on Instagram" aria-label="Visit my Instagram profile">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
 
-                            <a href="https://quasarcup.org" class="social-link" title="QuasarCup - Paul's Project"
-                                aria-label="Visit QuasarCup website">
-                                <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-                                    <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" fill="none" />
-                                    <circle cx="16" cy="16" r="8" fill="currentColor" />
-                                    <circle cx="16" cy="16" r="3" fill="var(--bg-white)" />
-                                    <path d="M16 2 L20 8 L16 14 L12 8 Z" fill="currentColor" />
-                                    <path d="M16 30 L12 24 L16 18 L20 24 Z" fill="currentColor" />
-                                    <path d="M2 16 L8 12 L14 16 L8 20 Z" fill="currentColor" />
-                                    <path d="M30 16 L24 20 L18 16 L24 12 Z" fill="currentColor" />
-                                </svg>
-                            </a>
-                        </div>
+                        <a href="https://quasarcup.org" class="social-link" title="QuasarCup - Paul's Project"
+                            aria-label="Visit QuasarCup website">
+                            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                                <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" fill="none" />
+                                <circle cx="16" cy="16" r="8" fill="currentColor" />
+                                <circle cx="16" cy="16" r="3" fill="var(--bg-white)" />
+                                <path d="M16 2 L20 8 L16 14 L12 8 Z" fill="currentColor" />
+                                <path d="M16 30 L12 24 L16 18 L20 24 Z" fill="currentColor" />
+                                <path d="M2 16 L8 12 L14 16 L8 20 Z" fill="currentColor" />
+                                <path d="M30 16 L24 20 L18 16 L24 12 Z" fill="currentColor" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Commonplace Page -->
-        <div class="page" id="commonplace">
-            <div class="page-content">
-                <h1>Commonplace Book</h1>
-                <p>A collection of resources, books, projects, and memorable quotes that have shaped my thinking.</p>
-
-                <h2>Technical Resources</h2>
-                <ul>
-                    <li><a href="#">Class 1 / Class 2 Problems</a></li>
-                    <li><a href="#">The Architecture of Open Source Applications</a></li>
-                    <li><a href="#">Tutorials on the Foundations of Cryptography</a></li>
-                    <li><a href="#">Homomorphic Encryption References</a></li>
-                    <li><a href="#">Command-Line Fuzzy Finder</a></li>
-                    <li><a href="#">TypeRacer</a></li>
-                    <li><a href="#">Makefile Tutorial</a></li>
-                    <li><a href="#">Debugging by Pretty Printing</a> - Jose Javier Gonzalez Ortiz</li>
-                </ul>
-
-                <h2>Books & Literature</h2>
-                <ul>
-                    <li><a href="#">The Little Prince</a></li>
-                    <li><a href="#">Bernett Penka Rare Books</a></li>
-                    <li><a href="#">Humankind: A Hopeful History</a></li>
-                    <li><a href="#">Zlatan</a></li>
-                    <li><a href="#">Yasin: See Me Shine</a></li>
-                    <li><a href="#">Buchhandlung Walther König</a></li>
-                </ul>
-
-                <h2>Projects & Experiments</h2>
-                <ul>
-                    <li><a href="#">How Many Plants</a></li>
-                    <li><a href="#">Supertramp: Breakfast in America</a></li>
-                    <li><a href="#">Super Falafel</a></li>
-                    <li><a href="#">Mount Auburn Cemetery</a></li>
-                </ul>
-
-                <h2>Memorable Quotes</h2>
-                <div class="quotes">
-                    <blockquote>
-                        <p>"Everyone you meet is fighting a battle you know nothing about. Be kind. Always."</p>
-                    </blockquote>
-
-                    <blockquote>
-                        <p>"Maybe people are just working on the wrong things."</p>
-                        <footer>- Patrick Collison</footer>
-                    </blockquote>
-
-                    <blockquote>
-                        <p>"Actually, time itself is neutral; it can be used either destructively or constructively."
-                        </p>
-                        <footer>- Martin Luther King</footer>
-                    </blockquote>
-
-                    <blockquote>
-                        <p>"To check if you have renamed a variable correctly, check for exact equality between the
-                            binaries. This is sufficient and necessary."</p>
-                        <footer>- Charles Leiserson</footer>
-                    </blockquote>
-
-                    <blockquote>
-                        <p>"Omit needless words."</p>
-                        <footer>- The Elements of Style</footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-
-        <!-- Posts Page -->
-        <div class="page" id="posts">
-            <div class="page-content">
-                <h1>Posts</h1>
-                <p>My thoughts on various topics, from school experiences to broader observations about life,
-                    technology, and personal growth.</p>
-                <h2>Coming soon!</h2>
-            </div>
-        </div>
     </div>
 
-    <script>
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
-
-            // Handle navigation
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetPage = link.getAttribute('data-page');
-
-                    // Update active states
-                    pages.forEach(page => page.classList.remove('active'));
-                    document.getElementById(targetPage).classList.add('active');
-
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    link.classList.add('active');
-                });
-            });
-
-            // Visitor counter functionality
-            async function trackVisit() {
-                const visitorCountElement = document.querySelector('.visitor-count');
-
-                try {
-                    // Using a simple counter that increments each time
-                    let visitorCount = localStorage.getItem('visitorCount') || 0;
-                    visitorCount = parseInt(visitorCount) + 1;
-                    localStorage.setItem('visitorCount', visitorCount);
-
-                    // For demo purposes, we'll also try the CountAPI
-                    try {
-                        const response = await fetch('https://api.countapi.xyz/hit/paultichisanu.xyz/visits');
-                        const data = await response.json();
-                        if (data.value) {
-                            visitorCount = data.value;
-                        }
-                    } catch (apiError) {
-                        console.log('CountAPI not available, using local counter');
-                    }
-
-                    visitorCountElement.classList.remove('loading');
-                    visitorCountElement.innerHTML = `
-                        <span>👥 Visitors: ${visitorCount}</span>
-                    `;
-                } catch (error) {
-                    console.error('Error tracking visit:', error);
-                    visitorCountElement.classList.remove('loading');
-                    visitorCountElement.innerHTML = `
-                        <span>👥 Welcome!</span>
-                    `;
-                }
-            }
-
-            // Initialize tracking
-            trackVisit();
-        });
-
-        // Smooth scrolling for any anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add some interactive effects
-        const container = document.querySelector('.container');
-        if (container) {
-            container.addEventListener('mouseenter', () => {
-                container.style.transform = 'translateY(-4px)';
-            });
-
-            container.addEventListener('mouseleave', () => {
-                container.style.transform = 'translateY(0)';
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

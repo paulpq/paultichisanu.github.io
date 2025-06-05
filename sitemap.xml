@@ -3,32 +3,32 @@
   
   <!-- Home Page -->
   <url>
-    <loc>https://paultichisanu.com/</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://paultichisanu.xyz/</loc>
+    <lastmod>2024-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Home Page (explicit) -->
   <url>
-    <loc>https://paultichisanu.com/index.html</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://paultichisanu.xyz/index.html</loc>
+    <lastmod>2024-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Commonplace Book Page -->
   <url>
-    <loc>https://paultichisanu.com/#commonplace</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://paultichisanu.xyz/commonplace.html</loc>
+    <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Posts Page -->
   <url>
-    <loc>https://paultichisanu.com/#posts</loc>
-    <lastmod>2025-06-01</lastmod>
+    <loc>https://paultichisanu.xyz/posts.html</loc>
+    <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

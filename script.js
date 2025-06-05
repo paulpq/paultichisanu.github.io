@@ -1,83 +1,50 @@
-// Navigation functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
-
-            // Handle navigation
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetPage = link.getAttribute('data-page');
-
-                    // Update active states
-                    pages.forEach(page => page.classList.remove('active'));
-                    document.getElementById(targetPage).classList.add('active');
-
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    link.classList.add('active');
-                });
-            });
-
-            // Visitor counter functionality
-            async function trackVisit() {
-                const visitorCountElement = document.querySelector('.visitor-count');
-
-                try {
-                    // Using a simple counter that increments each time
-                    let visitorCount = localStorage.getItem('visitorCount') || 0;
-                    visitorCount = parseInt(visitorCount) + 1;
-                    localStorage.setItem('visitorCount', visitorCount);
-
-                    // For demo purposes, we'll also try the CountAPI
-                    try {
-                        const response = await fetch('https://api.countapi.xyz/hit/paultichisanu.xyz/visits');
-                        const data = await response.json();
-                        if (data.value) {
-                            visitorCount = data.value;
-                        }
-                    } catch (apiError) {
-                        console.log('CountAPI not available, using local counter');
-                    }
-
-                    visitorCountElement.classList.remove('loading');
-                    visitorCountElement.innerHTML = `
-                        <span>👥 Visitors: ${visitorCount}</span>
-                    `;
-                } catch (error) {
-                    console.error('Error tracking visit:', error);
-                    visitorCountElement.classList.remove('loading');
-                    visitorCountElement.innerHTML = `
-                        <span>👥 Welcome!</span>
-                    `;
-                }
-            }
-
-            // Initialize tracking
-            trackVisit();
-        });
-
-        // Smooth scrolling for any anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+// Fetch and display total visitors
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
+    });
 
-        // Add some interactive effects
-        const container = document.querySelector('.container');
-        if (container) {
-            container.addEventListener('mouseenter', () => {
-                container.style.transform = 'translateY(-4px)';
-            });
+    // Interactive effect for container
+    const container = document.querySelector('.container');
+    if (container) {
+        container.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const { left, top, width, height } = container.getBoundingClientRect();
+            const x = (clientX - left) / width;
+            const y = (clientY - top) / height;
+            
+            container.style.transform = `
+                perspective(1000px)
+                rotateY(${(x - 0.5) * 5}deg)
+                rotateX(${(y - 0.5) * -5}deg)
+            `;
+        });
 
-            container.addEventListener('mouseleave', () => {
-                container.style.transform = 'translateY(0)';
-            });
+        container.addEventListener('mouseleave', () => {
+            container.style.transform = 'none';
+        });
+    }
+});
+
+async function fetchTotalVisitors() {
+    const visitorCountElement = document.querySelector('.visitor-count');
+    if (!visitorCountElement) return;
+
+    try {
+        const response = await fetch('/.netlify/functions/counter');
+        const data = await response.json();
+        
+        if (data.count) {
+            visitorCountElement.textContent = data.count.toLocaleString();
         }
+    } catch (error) {
+        console.error('Error fetching visitor count:', error);
+        visitorCountElement.textContent = 'Loading...';
+    }
+} 
