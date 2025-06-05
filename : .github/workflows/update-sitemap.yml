@@ -1,0 +1,61 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches:
+      - main  # or master, depending on your default branch name
+    paths:
+      - '**.html'  # Only trigger on HTML file changes
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Update sitemap
+        run: |
+          python -c "
+          import os
+          import datetime
+          import xml.etree.ElementTree as ET
+          
+          # Configuration
+          SITE_URL = 'https://paultichisanu.com'
+          
+          # Create sitemap structure
+          urlset = ET.Element('urlset', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
+          
+          # Add home page
+          for path in ['/', '/index.html']:
+              url = ET.SubElement(urlset, 'url')
+              ET.SubElement(url, 'loc').text = SITE_URL + path
+              ET.SubElement(url, 'lastmod').text = datetime.datetime.now().strftime('%Y-%m-%d')
+              ET.SubElement(url, 'changefreq').text = 'monthly'
+              ET.SubElement(url, 'priority').text = '1.0'
+          
+          # Add other HTML files
+          for file in os.listdir('.'):
+              if file.endswith('.html') and file != 'index.html':
+                  url = ET.SubElement(urlset, 'url')
+                  ET.SubElement(url, 'loc').text = f'{SITE_URL}/{file}'
+                  ET.SubElement(url, 'lastmod').text = datetime.datetime.now().strftime('%Y-%m-%d')
+                  ET.SubElement(url, 'changefreq').text = 'weekly'
+                  ET.SubElement(url, 'priority').text = '0.8'
+          
+          # Write sitemap
+          tree = ET.ElementTree(urlset)
+          tree.write('sitemap.xml', encoding='utf-8', xml_declaration=True)
+          "
+        
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update sitemap [skip ci]" && git push)
