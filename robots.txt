@@ -1,7 +1,7 @@
-# robots.txt for https://paultichisanu.com
+# robots.txt for https://paultichisanu.xyz
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://paultichisanu.com/sitemap.xml 
+Sitemap: https://paultichisanu.xyz/sitemap.xml 

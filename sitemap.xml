@@ -3,7 +3,7 @@
   
   <!-- Home Page -->
   <url>
-    <loc>https://paultichisanu.com/</loc>
+    <loc>https://paultichisanu.xyz/</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -19,7 +19,7 @@
   
   <!-- Commonplace Book Page -->
   <url>
-    <loc>https://paultichisanu.com/commonplace</loc>
+    <loc>https://paultichisanu.xyz/commonplace</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
   
   <!-- Posts Page -->
   <url>
-    <loc>https://paultichisanu.com/posts</loc>
+    <loc>https://paultichisanu.xyz/posts</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
