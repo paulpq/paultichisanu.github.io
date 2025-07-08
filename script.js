@@ -1,5 +1,5 @@
 // Fetch and display total visitors
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const { left, top, width, height } = container.getBoundingClientRect();
             const x = (clientX - left) / width;
             const y = (clientY - top) / height;
-            
+
             container.style.transform = `
                 perspective(1000px)
                 rotateY(${(x - 0.5) * 5}deg)
@@ -39,7 +39,7 @@ async function fetchTotalVisitors() {
     try {
         const response = await fetch('/.netlify/functions/counter');
         const data = await response.json();
-        
+
         if (data.count) {
             visitorCountElement.textContent = data.count.toLocaleString();
         }
